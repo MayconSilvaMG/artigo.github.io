@@ -1,2 +1,2 @@
-# artigo.github.io
+# artigoEstoque.github.io
 Documento sobre projeto de controle de estoque

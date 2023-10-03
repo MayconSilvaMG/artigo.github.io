@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="shortcut icon" href="../img/favicon.ico" />
+  <title>Front-End</title>
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Front-End";
+    var mkdocs_page_input_path = "frontend.md";
+    var mkdocs_page_url = null;
+  </script>
+
+  <script src="../js/jquery-3.6.0.min.js" defer></script>
+  <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Sistema de controle de estoque
+          </a>
+          <div role="search">
+            <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+              <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+            </form>
+          </div>
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+          <ul>
+            <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+            </li>
+          </ul>
+          <ul>
+            <li class="toctree-l1"><a class="reference internal" href="../introducao/">Introdução</a>
+            </li>
+          </ul>
+          <ul class="current">
+            <li class="toctree-l1 current"><a class="reference internal current" href="./">Front-End</a>
+              <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" href="#prototipo">Prototipo Figma</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="#tela-inicial">Tela inicial</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="#new-product">Tela de adicionar produto</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="#produto-adicionado">Tela com o produto
+                    adicionado</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="#delete">Deletando produto</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="#utilizacao-das-tecnologias">Utilização das
+                    tecnologias Front-end</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="#class-product">Classe Produto e Construtor</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="#method-add">Método de adicionar</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="#method-lerdados">Método lerdados</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="#method-listTable">Método de listar tabela</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="#method-adicionarlementonoarray">Método adicionarlementonoarray(produto)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="#method-validaCampos">Método validaCampos(produto)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="#method-delete">Método deletar(id)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="#var-product">Instanciando a classe Produto</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="#function-search">Função search()</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <!--<ul>
+            <li class="toctree-l1"><a class="reference internal" href="../back-end/">Back-End</a>
+            </li>
+          </ul>-->
+          <ul>
+            <li class="toctree-l1"><a class="reference internal" href="../repositorio/">Repositório</a>
+            </li>
+          </ul>
+          <ul>
+            <li class="toctree-l1"><a class="reference internal" href="../desenvolvedores/">Desenvolvedores</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Sistema de controle de estoque</a>
+
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+            <ul class="wy-breadcrumbs">
+              <li><a href=".." class="icon icon-home" alt="Docs"></a> &raquo;</li>
+              <li>Desenvolvimento Front-End</li>
+              <li class="wy-breadcrumbs-aside">
+              </li>
+            </ul>
+            <hr />
+          </div>
+
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              <h1 id="prototipo">Protótipo Figma.</h1>
+              <h2>Apresentando nosso protótipo feito no figma</h2>
+              <p>Dê uma espiada no nosso mais recente protótipo Figma! É um vislumbre do que estamos trabalhando e mal
+                podemos esperar para compartilhar com você. É uma janela para o nosso mundo de ideias e inovação. Vamos
+                explorar juntos! 😊🚀</p>
+              <p><img alt="Prototipo" src="../img/prototipo.png" />
+                <strong>Tela desenvolvida no figma.</strong>
+              </p>
+              <hr>
+              <h2>Apresentando nossas telas funcionais</h2>
+              <h3 id="tela-inicial">Tela incial</h3>
+              <p>Dê uma espiada nas nossas telas funcionais - a amostra do que estamos construindo! Cada tela é um
+                pedaço do nosso projeto em andamento. Com elas, você pode realmente ver como nossa solução vai
+                funcionar. 😊🚀</p>
+              <p><img alt="Inicial" src="../img/initial.png" />
+                <strong>Tela inicial onde o usuário poderá visualizar as funcionalidades que o sistema tem.</strong>
+              </p>
+              <hr>
+              <h3 id="new-product">Tela de adicionar produto</h3>
+              <p><img alt="Adicionar" src="../img/new-product.png" />
+                <strong>Tela de adicionar produto, nessa tela o usuário poderá dar os atributos para salvar o
+                  produto.</strong>
+              </p>
+              <hr>
+              <p><img alt="Adicionar" src="../img/new-product2.png" />
+                <strong>Exemplo de atributos para serem adicionados.</strong>
+              </p>
+              <hr>
+              <h3 id="produto-adicionado">Produto adicionado</h3>
+              <p><img alt="Produto Adicionado" src="../img/add-product.png" />
+                <strong>Aqui podemos ver o produto já adicionado à tabela.</strong>
+              </p>
+              <hr>
+              <h3 id="delete">Botão de deletar</h3>
+              <p><img alt="Deletando" src="../img/delete-product.png" />
+                <strong>Botão de deletar, onde deletamos o produto.</strong>
+              </p>
+              <hr>
+
+              <h2 id="utilizacao-das-tecnologias">Utilização das tecnologias.</h2>
+              <h3 id="class-product">Classe Produto e Construtor:</h3>
+              <p>A classe Produto é uma classe que representa produtos. Ela possui um construtor que é executado quando
+                você cria uma instância dessa classe. O construtor inicializa duas propriedades: id com o valor 0 e
+                arrayProdutos como um array vazio.</p>
+              <pre>
+              <code>
+                class Produto {
+
+                  constructor() {
+                      this.id = 0;
+                      this.arrayProdutos = [];
+                  }
+                }
+              </code>
+            </pre>
+              <hr>
+
+              <h3 id="method-add">Método adicionar():</h3>
+              <p>O método adicionar é responsável por adicionar um novo produto à lista de produtos. Ele faz o seguinte:
+              </p>
+              <ul>
+                <li>Chama o método lerdados para ler os dados do produto a partir dos campos de entrada na página.</li>
+                <li>Verifica se os campos do produto são válidos usando o método validaCampos.</li>
+                <li>Se os campos forem válidos, o produto é adicionado ao array de produtos usando o método
+                  adicionarlementonoarray.</li>
+                <li>Em seguida, chama o método listaTabela para atualizar a tabela na página.</li>
+              </ul>
+              <pre>
+              <code>
+                adicionar() {
+                  let produto = this.lerdados();
+          
+                  if (this.validaCampos(produto)) {
+                      this.adicionarlementonoarray(produto);
+                  }
+          
+                  this.listaTabela();
+              }
+              </code>
+            </pre>
+              <hr>
+
+              <h3 id="method-lerdados">Método lerdados():</h3>
+              <p>O método lerdados lê os dados do produto a partir dos campos de entrada na página e retorna um objeto
+                com esses dados.</p>
+              <pre>
+              <code>
+                lerdados() {
+                  let produto = {}
+          
+                  produto.id = this.id;
+                  produto.nomeproduto = document.getElementById('adicionarproduto').value;
+                  produto.nomelocal = document.getElementById('adicionarlocal').value;
+                  produto.quantidade = document.getElementById('adicionarquantidade').value;
+          
+                  return produto;
+          
+              }
+              </code>
+            </pre>
+              <hr>
+
+              <h3 id="method-listTable">Método listaTabela():</h3>
+              <p>O método listaTabela atualiza a tabela na página com os produtos presentes no array arrayProdutos. Ele
+                faz o seguinte:</p>
+              <ul>
+                <li>Obtém a referência ao elemento "tbody" na tabela.</li>
+                <li>Limpa o conteúdo atual do "tbody" (remove todas as linhas existentes).</li>
+                <li>Itera sobre o array de produtos (arrayProdutos) e cria uma nova linha ("tr") na tabela para cada
+                  produto.</li>
+                <li>Para cada linha, cria células ("td") para exibir o ID, nome do produto, local e quantidade.</li>
+                <li>Adiciona um botão "EXCLUIR" para cada linha com um atributo onclick que chama o método deletar com o
+                  ID do produto como argumento.</li>
+              </ul>
+              <pre>
+              <code>
+                listaTabela() {
+
+                  let tbody = document.getElementById('tbody');
+                  tbody.innerText = '';
+          
+                  for (let i = 0; i < this.arrayProdutos.length; i++) {
+                      let tr = tbody.insertRow();
+          
+                      let td_id = tr.insertCell();
+                      let td_produto = tr.insertCell();
+                      let td_local = tr.insertCell();
+                      let td_quantidade = tr.insertCell();
+                      let td_acoes = tr.insertCell();
+          
+                      td_id.innerText = this.arrayProdutos[i].id;
+                      td_produto.innerText = this.arrayProdutos[i].nomeproduto;
+                      td_local.innerText = this.arrayProdutos[i].nomelocal;
+                      td_quantidade.innerText = this.arrayProdutos[i].quantidade;
+          
+                      td_id.classList.add('center')
+          
+                      let btnDelete = document.createElement('button')
+                      td_acoes.appendChild(btnDelete);
+                      btnDelete.innerHTML = "EXLUIR";
+                      btnDelete.style.backgroundColor = '#1ABF66';
+                      btnDelete.style.color = '#ffffff';
+                      btnDelete.setAttribute("onclick", "produto.deletar(" + this.arrayProdutos[i].id + ")");
+          
+                  }
+          
+              }
+              </code>
+            </pre>
+              <hr>
+
+              <h3 id="method-adicionarlementonoarray">Método adicionarlementonoarray(produto):</h3>
+              <p>O método adicionarlementonoarray adiciona o produto passado como argumento ao array arrayProdutos e
+                incrementa o ID para o próximo produto a ser adicionado.</p>
+              <pre>
+              <code>
+                adicionarlementonoarray(produto) {
+                  this.arrayProdutos.push(produto);
+                  this.id++;
+              }
+              </code>
+            </pre>
+              <hr>
+
+              <h3 id="method-validaCampos">Método validaCampos(produto):</h3>
+              <p>O método validaCampos verifica se os campos obrigatórios do produto estão preenchidos. Se algum campo
+                estiver em branco, ele exibe uma mensagem de alerta e retorna false. Caso contrário, retorna true.</p>
+              <pre>
+              <code>
+                validaCampos(produto) {
+
+                  let msg = '';
+          
+                  if (produto.nomeproduto == '') {
+                      msg += 'Informe o nome do produto \n'
+                  }
+          
+                  if (produto.nomelocal == '') {
+                      msg += 'Informe o local do produto \n'
+                  }
+          
+                  if (produto.quantidade == '') {
+                      msg += 'Informe a quantidade do produto \n'
+                  }
+          
+                  if (msg != '') {
+                      alert(msg);
+                      return false;
+                  }
+          
+                  return true;
+          
+              }
+              </code>
+            </pre>
+              <hr>
+
+              <h3 id="method-delete">Método deletar(id):</h3>
+              <p>O método deletar recebe o ID de um produto como argumento e remove o produto com esse ID do array
+                arrayProdutos. Além disso, remove a linha correspondente da tabela na página.</p>
+              <pre>
+              <code>
+                deletar(id) {
+
+                  let tbody = document.getElementById('tbody');
+          
+                  for (let i = 0; i < this.arrayProdutos.length; i++) {
+                      if (this.arrayProdutos[i].id == id) {
+                          this.arrayProdutos.splice(i, 1);
+                          tbody.deleteRow(i);
+                      }
+                  }
+              }
+              </code>
+            </pre>
+              <hr>
+
+              <h3 id="var-product">Instanciando a classe Produto:</h3>
+              <p>Logo após a definição da classe Produto, é criada uma instância da classe Produto chamada produto.</p>
+              <pre>
+              <code>
+                var produto = new Produto();
+              </code>
+            </pre>
+              <hr>
+
+              <h3 id="function-search">Função search():</h3>
+              <p>A função search é uma função que realiza uma pesquisa na tabela com base no texto inserido em um campo
+                de pesquisa. Ela faz o seguinte:</p>
+              <ul>
+                <li>Obtém o valor digitado no campo de pesquisa.</li>
+                <li>Converte o valor para minúsculas para garantir uma pesquisa sem diferenciação entre maiúsculas e
+                  minúsculas.</li>
+                <li>Seleciona todas as linhas da tabela ("tr") dentro do "tbody".</li>
+                <li>Itera sobre essas linhas e compara o conteúdo de texto de cada linha com o texto de pesquisa.</li>
+                <li>Se uma linha corresponder ao texto de pesquisa, ela é exibida (alterando o estilo CSS para
+                  table-row); caso contrário, a linha é ocultada (alterando o estilo CSS para none), o que a remove da
+                  visualização.</li>
+              </ul>
+              <pre>
+              <code>
+                function search() {
+                  let input = document.getElementById('searchbar').value.toLowerCase();
+                  let rows = document.querySelectorAll('#tbody tr');
+              
+                  rows.forEach(row => {
+                      let rowData = row.textContent.toLowerCase();
+                      if (rowData.includes(input)) {
+                          row.style.display = "table-row";
+                      } else {
+                          row.style.display = "none";
+                      }
+                  });
+              }
+              </code>
+            </pre>
+
+            </div>
+          </div>
+          <footer>
+            <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+              <a href="../introducao/" class="btn btn-neutral float-left" title="Introdução"><span
+                  class="icon icon-circle-arrow-left"></span> Previous</a>
+                  <a href="../repositorio/" class="btn btn-neutral float-right" title="Repositório">Next <span
+                    class="icon icon-circle-arrow-right"></span></a>
+              <!--<a href="../back-end/" class="btn btn-neutral float-right" title="Back-End">Next <span
+                  class="icon icon-circle-arrow-right"></span></a>-->
+            </div>
+
+            <hr />
+
+            <div role="contentinfo">
+              <!-- Copyright etc -->
+            </div>
+
+            Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a
+              href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a
+              href="https://readthedocs.org">Read the Docs</a>.
+          </footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+
+
+      <span><a href="../introducao/" style="color: #fcfcfc">&laquo; Previous</a></span>
+
+
+      <span><a href="../repositorio/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <!--<span><a href="../back-end/" style="color: #fcfcfc">Next &raquo;</a></span>-->
+
+    </span>
+  </div>
+  <script>var base_url = '..';</script>
+  <script src="../js/theme_extra.js" defer></script>
+  <script src="../js/theme.js" defer></script>
+  <script src="../search/main.js" defer></script>
+  <script defer>
+    window.onload = function () {
+      SphinxRtdTheme.Navigation.enable(true);
+    };
+  </script>
+
+</body>
+
+</html>
