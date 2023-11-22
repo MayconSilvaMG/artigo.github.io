@@ -60,6 +60,110 @@
                 <li class="toctree-l2"><a class="reference internal" href="#apresentacao">Apresentação Back-End</a>
                 </li>
               </ul>
+              <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" href="#estrutura">Estrutura</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" href="#startup">Classe Startup</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" href="#contrutor-startup">Método Construtor
+                    Startup</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" href="#configuration-startup">Propriedade
+                    Configuration</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" href="#method-configureServices">Método
+                    ConfigureServices</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" href="#method-configure">Método Configure</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" href="#createProductViewModel">Classe
+                    CreateProductViewModel</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" href="#productName">Propriedade ProductName</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" href="#productLocation">Propriedade
+                    ProductLocation</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" href="#productQtd">Propriedade ProductQtd</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" href="#class-product">Classe Product</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" href="#property-id">Propriedade Id</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" href="#property-ProductName">Propriedade
+                    ProductName</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" href="#property-ProductLocation">Propriedade
+                    ProductLocation</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" href="#property-ProductQtd">Propriedade
+                    ProductQtd</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" href="#class-ProductController ">Classe
+                    ProductController</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" href="#method-GetProduct">Método GetProduct</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" href="#method-GetByIdAsync">Método GetByIdAsync</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" href="#method-CreateProduct">Método
+                    CreateProduct</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" href="#method-UpdateProduct">Método
+                    UpdateProduct</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" href="#method-DeleteProduto">Método
+                    DeleteProduto</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" href="#class-AppDbContext">Classe AppDbContext</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" href="#migrations">Migrations Auto Geradas</a>
+                </li>
+              </ul>
             </li>
           </ul>
           <ul>
@@ -101,11 +205,454 @@
                 Esse é o cérebro por trás de todas as operações, tornando nossa aplicação funcional e eficiente.
                 Vamos mostrar como essas tecnologias trabalham juntas para fazer o nosso projeto funcionar.
                 É a espinha dorsal que mantém tudo em funcionamento. 💻🚀</p>
-                <hr>
+              <hr>
               <h2 id="estrutura">Estrutura da solução</h2>
               <p><img class="img" alt="Estrutura da solução" src="../img/estrutura.png" /></p>
               <hr>
+              <h2 id="startup">Classe Startup</h2>
+              <p>A classe Startup é uma parte fundamental de um aplicativo ASP.NET Core, onde você configura serviços e
+                o pipeline de solicitação (request pipeline) que define como as solicitações HTTP são tratadas. Vamos
+                analisar cada método desta classe:</p>
+
+              <!--Método Construtor Startup-->
+              <h3 id="contrutor-startup">Método Construtor Startup(IConfiguration configuration)</h3>
+              <pre>
+              <code>
+                  public Startup(IConfiguration configuration)
+                  {
+                      Configuration = configuration;
+                  }
+                </code>
+              </pre>
+              <p>O construtor é chamado quando a classe Startup é instanciada. Ele recebe uma instância de
+                IConfiguration, que é usada para acessar a configuração do aplicativo.</p>
+              <hr>
+
+              <!--Propriedade Configuration-->
+              <h3 id="configuration-startup">Propriedade Configuration</h3>
+              <pre>
+              <code>
+                public IConfiguration Configuration { get; }
+                </code>
+              </pre>
+              <p>Esta é uma propriedade pública que armazena a configuração do aplicativo. É preenchida pelo construtor.
+              </p>
+              <hr>
+
+              <!--Método ConfigureServices(IServiceCollection services)-->
+              <h3 id="method-configureServices">Método ConfigureServices(IServiceCollection services)</h3>
+              <pre>
+              <code>
+                public void ConfigureServices(IServiceCollection services)
+                {
+                  services.AddControllers();
+                  services.AddCors();
+                  services.AddDbContext<AppDbContext>();
+                  services.AddSwaggerGen(c =>
+                  {
+                      c.SwaggerDoc("v1", new OpenApiInfo { Title = "Estoque", Version = "v1" });
+                  });
+                } 
+                </code>
+              </pre>
+              <p>Este método é usado para configurar os serviços necessários para o aplicativo. Aqui estão as principais
+                ações realizadas:
+              </p>
+              <ul>
+                <li>services.AddControllers(): Adiciona os controladores MVC ao serviço, permitindo o uso de APIs
+                  baseadas em controladores;</li>
+                <li>services.AddCors(): Configuração do CORS (Cross-Origin Resource Sharing), permitindo que recursos em
+                  seu servidor sejam acessados por domínios diferentes;</li>
+                <li>services.AddDbContext<AppDbContext>(): Configura o contexto do banco de dados para a aplicação.
+                    AppDbContext é uma classe que representa o contexto do Entity Framework para interagir com o banco
+                    de dados;</li>
+                <li>services.AddSwaggerGen(...): Configura o Swagger para gerar documentação da API. O Swagger é uma
+                  ferramenta que facilita a documentação e teste de APIs;</li>
+              </ul>
+              <hr>
+
+              <!--Método Configure(IApplicationBuilder app, IWebHostEnvironment env)-->
+              <h3 id="method-configure">Método Configure(IApplicationBuilder app, IWebHostEnvironment env)</h3>
+              <pre>
+              <code>
+                public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+                {
+                    if (env.IsDevelopment())
+                    {
+                        app.UseDeveloperExceptionPage();
+                        app.UseSwagger();
+                        app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Estoque v1"));
+                    }
                 
+                    app.UseRouting();
+                
+                    app.UseAuthorization();
+                
+                    app.UseCors(x => x.AllowAnyHeader()
+                                    .AllowAnyMethod()
+                                    .AllowAnyOrigin());
+                
+                    app.UseEndpoints(endpoints =>
+                    {
+                        endpoints.MapControllers();
+                    });
+                }
+                </code>
+              </pre>
+              <p>Este método é usado para configurar o pipeline de solicitação da aplicação. Aqui estão as principais
+                ações realizadas:
+              </p>
+              <ul>
+                <li>if (env.IsDevelopment()): Verifica se o aplicativo está rodando no ambiente de desenvolvimento. Se
+                  sim, habilita páginas de exceção detalhadas e configura o Swagger para a documentação da API;</li>
+                <li>app.UseRouting(): Habilita o roteamento de solicitações, determinando qual código manipulará uma
+                  solicitação específica;</li>
+                <li>app.UseAuthorization(): Habilita o middleware de autorização;</li>
+                <li>app.UseCors(...): Configuração do CORS para permitir solicitações de qualquer origem, método e
+                  cabeçalho;</li>
+                <li>app.UseEndpoints(...): Configuração dos pontos de extremidade, neste caso, mapeando os controladores
+                  MVC para manipular solicitações HTTP;</li>
+              </ul>
+              <hr>
+              <p>Essa classe Startup é essencial para a configuração e inicialização de um aplicativo ASP.NET Core. Ela
+                define como o aplicativo será configurado e como as solicitações serão tratadas.
+              </p>
+              <hr>
+
+              <!--Classe DreateProductViewModel-->
+              <h2 id="createProductViewModel">Classe CreateProductViewModel</h2>
+              <p>A classe CreateProductViewModel é usada para criar um produto. Geralmente, ViewModels são usadas para
+                representar dados específicos para as necessidades de uma view em uma aplicação MVC. Vamos analisar o
+                código desta classe:</p>
+              <pre>
+                <code>
+                  public class CreateProductViewModel
+                  {
+                      [Required]
+                      public string ProductName { get; set; }
+                      
+                      public string ProductLocation { get; set; }
+                      
+                      public int ProductQtd { get; set; }
+                  }
+                  </code>
+                </pre>
+              <hr>
+
+              <!--Propriedade ProductName-->
+              <h3 id="productName">Propriedade ProductName</h3>
+              <pre>
+              <code>
+                [Required]
+                public string ProductName { get; set; }
+                </code>
+              </pre>
+              <ul>
+                <li>A propriedade ProductName representa o nome do produto;</li>
+                <li>A anotação [Required] é um atributo de validação que especifica que este campo é obrigatório. Isso
+                  significa que, ao tentar criar uma instância dessa ViewModel, o ProductName deve ser fornecido e não
+                  pode ser nulo;</li>
+              </ul>
+              <hr>
+
+              <!--Propriedade ProductLocation-->
+              <h3 id="productLocation">Propriedade ProductLocation</h3>
+              <pre>
+               <code>
+                public string ProductLocation { get; set; }
+                 </code>
+               </pre>
+              <ul>
+                <li>A propriedade ProductLocation representa a localização do produto;</li>
+                <li>Não há nenhuma anotação de validação aqui, então esta propriedade não é obrigatória;</li>
+              </ul>
+              <hr>
+
+              <!--Propriedade ProductQtd-->
+              <h3 id="productQtd">Propriedade ProductQtd</h3>
+              <pre>
+               <code>
+                public int ProductQtd { get; set; }
+                 </code>
+               </pre>
+              <ul>
+                <li>A propriedade ProductQtd representa a quantidade do produto;</li>
+                <li>Não há anotação de validação, o que significa que esta propriedade não é obrigatória;</li>
+              </ul>
+              <hr>
+              <p>Essa classe CreateProductViewModel é projetada para ser usada em cenários onde você precisa criar um
+                novo produto e enviar os dados relacionados a esse produto do cliente para o servidor, possivelmente em
+                um formulário da web. O uso de atributos de validação, como [Required], ajuda a garantir que os dados
+                fornecidos pelo usuário estejam de acordo com as expectativas e requisitos do aplicativo.</p>
+              <hr>
+
+              <!--Classe Product -->
+              <h2 id="class-product">Classe Product</h2>
+              <p>A classe Product é uma entidade que representa um produto. Geralmente, em um
+                contexto de desenvolvimento web com ASP.NET Core, essa classe seria associada a uma tabela em um banco
+                de
+                dados usando um ORM (Object-Relational Mapping), como o Entity Framework. Vamos analisar o código desta
+                classe:</p>
+              <pre>
+              <code>
+                public class Product
+                {
+                    public int Id { get; set; }
+                    public string ProductName { get; set; }
+                    public string ProductLocation { get; set; }
+                    public int ProductQtd { get; set; }
+                }
+                </code>
+              </pre>
+              <hr>
+
+              <!--Propriedade Id-->
+              <h3 id="property-id">Propriedade Id</h3>
+              <pre>
+             <code>
+              public int Id { get; set; }
+               </code>
+             </pre>
+              <ul>
+                <li>A propriedade Id é geralmente usada como a chave primária da tabela no banco de dados. É um
+                  identificador único para cada instância de Product;</li>
+              </ul>
+              <hr>
+
+              <!--Propriedade ProductName-->
+              <h3 id="property-ProductName">Propriedade ProductName</h3>
+              <pre>
+             <code>
+              public string ProductName { get; set; }
+               </code>
+             </pre>
+              <ul>
+                <li>A propriedade ProductName representa o nome do produto;</li>
+              </ul>
+              <hr>
+
+              <!--Propriedade ProductLocation-->
+              <h3 id="property-ProductLocation">Propriedade ProductLocation</h3>
+              <pre>
+             <code>
+              public string ProductLocation { get; set; }
+               </code>
+             </pre>
+              <ul>
+                <li>A propriedade ProductLocation representa a localização do produto;</li>
+              </ul>
+              <hr>
+
+              <!--Propriedade ProductQtd-->
+              <h3 id="property-ProductQtd">Propriedade ProductQtd</h3>
+              <pre>
+             <code>
+              public int ProductQtd { get; set; }
+               </code>
+             </pre>
+              <ul>
+                <li>A propriedade ProductQtd representa a quantidade do produto;</li>
+              </ul>
+              <hr>
+
+              <!--Classe ProductController  -->
+              <h2 id="class-ProductController ">Classe ProductController </h2>
+              <p>Essa classe ProductController em C# é um controlador ASP.NET Core que expõe uma API para operações CRUD
+                (Create, Read, Update, Delete) relacionadas a produtos. Vamos analisar cada método no controlador:</p>
+
+              <!--Método GetProduct-->
+              <h3 id="method-GetProduct">Método GetProduct</h3>
+              <p>Este método retorna todos os produtos da base de dados. Ele utiliza o contexto do banco de dados
+                (AppDbContext) injetado via serviço ([FromServices]). AsNoTracking() é usado para indicar que os
+                resultados não serão rastreados pelo Entity Framework para otimizar o desempenho. Se não houver
+                produtos, retorna um status NotFound. Caso contrário, retorna um status Ok com a lista de produtos.</p>
+              <pre>
+              <code>
+                [HttpGet]
+                [Route(template: "GetProduct")]
+                public async Task<IActionResult> GetProduct([FromServices] AppDbContext context)
+                {
+                    var products = await context
+                                        .Products
+                                        .AsNoTracking()
+                                        .ToListAsync();
+                    if (products == null)
+                    {
+                        return NotFound();
+                    }
+                    return Ok(products);
+                }
+                </code>
+              </pre>
+              <ul>
+                <li>Verbo HTTP: GET;</li>
+                <li>Rota: "v1/GetProduct";</li>
+              </ul>
+              <hr>
+
+              <!--Método GetByIdAsync-->
+              <h3 id="method-GetByIdAsync">Método GetByIdAsync</h3>
+              <p>Este método retorna um produto específico com base no ID fornecido. Utiliza o contexto do banco de
+                dados e, mais uma vez, usa AsNoTracking() para otimizar o desempenho. Se não houver produto com o ID
+                especificado, retorna um status NotFound. Caso contrário, retorna um status Ok com o produto.</p>
+              <pre>
+              <code>
+                [HttpGet]
+                [Route(template: "GetById/{id}")]
+                public async Task<IActionResult> GetByIdAsync([FromServices] AppDbContext context, int id)
+                {
+                    var products = await context
+                                        .Products
+                                        .AsNoTracking()
+                                        .FirstOrDefaultAsync(x => x.Id == id);
+                    if (products == null)
+                    {
+                        return NotFound();
+                    }
+                    return Ok(products);
+                }
+                </code>
+              </pre>
+              <ul>
+                <li>Verbo HTTP: GET;</li>
+                <li>Rota: "v1/GetById/{id}";</li>
+              </ul>
+              <hr>
+
+              <!--Método CreateProduct-->
+              <h3 id="method-CreateProduct">Método CreateProduct</h3>
+              <p>Este método cria um novo produto com base nos dados fornecidos no corpo da solicitação ([FromBody]).
+                Verifica se o modelo recebido é válido usando ModelState.IsValid. Se não for válido, retorna um status
+                BadRequest. Caso contrário, cria um novo produto, adiciona ao contexto do banco de dados, salva as
+                alterações e retorna um status CreatedAtAction com o ID e o produto criado.</p>
+              <pre>
+              <code>
+                [HttpPost]
+                [Route(template: "CreateProduct")]
+                public async Task<IActionResult> CreateProduct([FromServices] AppDbContext context, [FromBody] CreateProductViewModel model)
+                {
+                    if (!ModelState.IsValid)
+                    {
+                        return BadRequest();
+                    }
+                    var product = new Product
+                    {
+                        ProductName = model.ProductName,
+                        ProductLocation = model.ProductLocation,
+                        ProductQtd = model.ProductQtd
+                    };
+                    try
+                    {
+                        await context.Products.AddAsync(product);
+                        await context.SaveChangesAsync();
+                        return CreatedAtAction(nameof(GetProduct), new { id = product.Id }, product);
+                    }
+                    catch (Exception e)
+                    {
+                        return BadRequest();
+                    }              
+                }
+                </code>
+              </pre>
+              <ul>
+                <li>Verbo HTTP: POST;</li>
+                <li>Rota: "v1/CreateProduct";</li>
+              </ul>
+              <hr>
+
+              <!--Método UpdateProduct-->
+              <h3 id="method-UpdateProduct">Método UpdateProduct</h3>
+              <p>Este método atualiza um produto existente com base no ID fornecido. Semelhante ao método de criação, verifica a validade do modelo recebido e retorna um status BadRequest se não for válido. Se o produto com o ID fornecido não existir, retorna um status NotFound. Caso contrário, atualiza as propriedades do produto, salva as alterações e retorna um status Ok com o produto atualizado.</p>
+              <pre>
+              <code>
+                [HttpPut]
+                [Route(template: "UpdateProduct/{id}")]
+                public async Task<IActionResult> UpdateProduct([FromServices] AppDbContext context, int id, [FromBody] CreateProductViewModel model)
+                {
+                    if (!ModelState.IsValid)
+                        return BadRequest();
+
+                    var product = await context.Products.FirstOrDefaultAsync(x => x.Id == id);
+
+                    if (product == null)
+                        return NotFound();
+
+                    try
+                    {
+                        product.ProductName = model.ProductName;
+                        product.ProductLocation = model.ProductLocation;
+                        product.ProductQtd = model.ProductQtd;
+
+                        context.Products.Update(product);
+                        await context.SaveChangesAsync();
+                        return Ok(product);
+                    }
+                    catch(Exception e)
+                    {
+                        return BadRequest();
+                    }
+                }
+                </code>
+              </pre>
+              <ul>
+                <li>Verbo HTTP: PUT;</li>
+                <li>Rota: "v1/UpdateProduct/{id}";</li>
+              </ul>
+              <hr>
+
+              <!--Método DeleteProduto-->
+              <h3 id="method-DeleteProduto">Método DeleteProduto</h3>
+              <p>Este método exclui um produto com base no ID fornecido. Retorna um status NotFound se o produto com o ID especificado não existir. Caso contrário, remove o produto do contexto do banco de dados, salva as alterações e retorna um status NoContent.</p>
+              <pre>
+              <code>
+                [HttpDelete]
+                [Route(template: "DeleteProduct/{id}")]
+                public IActionResult DeleteProduto([FromServices] AppDbContext context, int id)
+                {
+                    var product = context.Products.Find(id);
+                    if (product == null)
+                        return NotFound();
+        
+                    context.Products.Remove(product);
+                    context.SaveChanges();
+                    return NoContent();
+                }
+                </code>
+              </pre>
+              <ul>
+                <li>Verbo HTTP: DELETE;</li>
+                <li>Rota: "v1/DeleteProduct/{id}";</li>
+              </ul>
+              <hr>
+              
+              <!--Classe AppDbContext  -->
+              <h2 id="class-AppDbContext">Classe AppDbContext</h2>
+              <p>Esse pedaço de código aqui faz parte da classe AppDbContext, que é tipo o cérebro da nossa aplicação quando o assunto é banco de dados. Aqui, estamos meio que dizendo para esse cérebro que temos uma tabela de produtos, representada pela classe Product.</p>
+              <pre>
+                <code>
+                  public DbSet<Product> Products { get; set; }
+                  </code>
+                </pre>
+                <p>Aqui, neste trecho de código, é como se a gente estivesse falando: "Ei, DbContext, a gente tem uma coleção de produtos aqui, tá ligado? Chama ela de Products."</p>
+                <p>E essa parte a seguir é como se a gente estivesse configurando qual tipo de banco de dados a gente quer usar. Tipo, a gente escolheu SQLite e disse onde queremos guardar esse banco de dados - no caso, num arquivo chamado "app.db".</p>
+                <pre>
+                  <code>
+                    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+                        => optionsBuilder.UseSqlite(connectionString: "DataSource=app.db;Cache=Shared");
+                    </code>
+                  </pre>
+                <p>Na linguagem do dia a dia, seria algo como: "Ei, DbContext, a gente vai usar SQLite, tá? E o banco de dados, poxa, a gente quer que ele seja um arquivo chamado 'app.db'."</p>
+                <p>Essa configuração é importante porque é como se estivéssemos dizendo para o Entity Framework onde e como encontrar o nosso banco de dados. Essa linha meio que faz essa mágica acontecer.</p>
+                <hr>
+
+                <!--Migrations  -->
+                <h2 id="migrations">Migrations</h2>
+                <p><img alt="Prototipo" src="../img/migrations1.png" />
+                  <strong>Essa migração está criando e revertendo (rollback) uma tabela chamada "Products" no banco de dados</strong>
+                </p>
+                <p><img alt="Prototipo" src="../img/migrations2.png" />
+                  <strong>Esse código define como o modelo de dados da aplicação (nesse caso, a entidade Product) deve ser mapeado para o esquema do banco de dados.</strong>
+                </p>
             </div>
           </div>
           <footer>
